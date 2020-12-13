@@ -1,5 +1,5 @@
 .data
-	Intro: .asciiz "Please enter the mode!:\nMode=0 corresponds to computation in decimal, Mode=0 corresponds to computation in hexadecimal\n"
+	Intro: .asciiz "Please enter the mode!:\nMode=0 corresponds to computation in decimal, Mode=1 corresponds to computation in hexadecimal\n"
 	getA:    .asciiz "Please enter the first dec-format number (multiplicand and dividend):"
         getB:    .asciiz "Please enter the second dec-format number (multiplier and divisor):"
         thuong:	 .asciiz "\nQuotient of division in hexadecimal:"
@@ -380,7 +380,7 @@ main:
     	j END_GAME
     	
     	playWithHex:
-	#read A
+		#read A
 	addi $v0, $zero, 4
 	la $a0, enterA
 	syscall
@@ -579,7 +579,7 @@ fromDecimalToHexa:
 divideHex:
     	srl $t8, $a0, 31
 	srl $t9, $a1, 31
-	beqz $t2, ifDividendPositive
+	beqz $t8, ifDividendPositive
 		sub $a0, $zero, $a0
 		beqz $t9, ifDivisorPositive0
 			sub $a1, $zero, $a1
