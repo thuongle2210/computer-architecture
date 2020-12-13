@@ -143,7 +143,7 @@ main:
     		j DO_division
     	END_DO_division:
 	
-       	addu $v0,$s3,$0 #quotient
+       addu $v0,$s3,$0 #quotient
     	addu $v1,$s2,$0 #remainder
     	
 	#get back the value for the stack
